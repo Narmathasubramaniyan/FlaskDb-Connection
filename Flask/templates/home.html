@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management</title>
+</head>
+<body>
+    <h2>CUSTOMER DETAILS</h2>
+    <p><a href="{{url_for('addUser')}}">ADD USER</a></p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>GENDER</th>
+            <th>CITY</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+        </tr>
+
+        {% for data in datas %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.Name }}</td>
+                <td>{{ data.Age }}</td>
+                <td>{{ data.Gender }}</td>
+                <td>{{ data.City }}</td>
+                <td><a href="{{ url_for('editUser', id=data.id) }}">Edit</a></td>
+                <td><a href="{{url_for('deleteUser',id=data.id)}}">Delete</a></td>
+            </tr>
+        {% endfor %}
+        
+    </table>
+</body>
+</html>
